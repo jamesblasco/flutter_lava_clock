@@ -24,8 +24,6 @@ jobs:
       - run: |
           cd lava_clock
           cd build/web
-          mkdir master
-          find . ! -name . -prune ! -name master -exec mv {} master/ \;
           git init
           # type configurations: your user.email and user.name followed lines 
           # git config --global user.email your_email 
