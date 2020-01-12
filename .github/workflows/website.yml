@@ -15,11 +15,14 @@ jobs:
         with:
           channel: 'dev'
       - run: |
+          cd lava_clock
           flutter config --enable-web
           flutter pub get
       - run: |
+         cd lava_clock
          flutter build web --release
       - run: |
+          cd lava_clock
           cd build/web
           mkdir master
           find . ! -name . -prune ! -name master -exec mv {} master/ \;
@@ -31,7 +34,7 @@ jobs:
           git config --global user.name jamesblasco
           git status
           # change this remote url:
-          git remote add origin https://${{secrets.commit_secret}}@github.com/flutter_lava_clock/lava_clock_flutter.git
+          git remote add origin https://${{secrets.commit_secret}}@github.com/jamesblasco/flutter_lava_clock.git
           git checkout -b gh-pages
           git add --all
           git commit -m "update"
