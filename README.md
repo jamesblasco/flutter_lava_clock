@@ -8,4 +8,4 @@ See [web demo](https://jamesblasco.github.io/flutter_lava_clock/)
 
 
 
-Known shadow issue: https://github.com/flutter/flutter/issues/32215
+Known web shadow issue: https://github.com/flutter/flutter/issues/32215
