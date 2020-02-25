@@ -20,7 +20,8 @@ List<Color> colors = [
 
 /// Lava clock.
 class LavaClock extends StatefulWidget {
-  const LavaClock(this.model);
+  final AnimationController animationController;
+  const LavaClock(this.model, {this.animationController});
 
   final ClockModel model;
 
@@ -54,7 +55,7 @@ class _LavaClockState extends State<LavaClock> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _animation =
+    _animation = widget.animationController ??
         AnimationController(duration: Duration(minutes: 5), vsync: this);
     _animation.repeat();
 

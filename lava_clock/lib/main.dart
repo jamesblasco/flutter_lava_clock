@@ -8,6 +8,8 @@ import 'package:flutter_clock_helper/customizer.dart';
 import 'package:flutter_clock_helper/model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:lava_clock/custom_customizer.dart';
+import 'package:lava_clock/frame.dart';
 
 import 'lava_clock.dart';
 
@@ -21,14 +23,9 @@ void main() {
     debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;
   }
 
-  // This creates a clock that enables you to customize it.
-  //
-  // The [ClockCustomizer] takes in a [ClockBuilder] that consists of:
-  //  - A clock widget (in this case, [DigitalClock])
-  //  - A model (provided to you by [ClockModel])
-  // For more information, see the flutter_clock_helper package.
-  //
-  // Your job is to edit [DigitalClock], or replace it with your
-  // own clock widget. (Look in lava_clock.dart for more details!)
-  runApp(ClockCustomizer((ClockModel model) => LavaClock(model)));
+
+  runApp( CustomClockCustomizer((ClockModel model) => ClockFrame(child: (controller) => LavaClock(model, animationController: controller))));
+  // Run without frame
+  // runApp( CustomClockCustomizer((ClockModel model) => LavaClock(model)));
+
 }
