@@ -20,7 +20,7 @@ jobs:
           flutter pub get
       - run: |
          cd lava_clock
-         flutter build web --release
+         flutter build web --release --dart-define=FLUTTER_WEB_USE_SKIA=true
       - run: |
           cd lava_clock
           cd build/web
